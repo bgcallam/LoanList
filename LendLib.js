@@ -40,7 +40,7 @@ if (Meteor.isClient) {
         // check to see if there is any value in the field
         var catVal = String(e.target.value || "");
         if(catVal) {
-          //lists.insert({Category:catVal}); **** below was changed to initialize as array, not list
+          //lists.insert({Category:catVal}); **** below was changed to initialize items as array, not list
           lists.insert({Category:catVal,items:[]});
           Session.set('adding_category', false);
         }
@@ -57,6 +57,7 @@ if (Meteor.isClient) {
   // Moves cursor to new focus
   function focusText(i) {
     i.focus();
+    i.value = val ? val : " ";
     i.select();
   };
   
